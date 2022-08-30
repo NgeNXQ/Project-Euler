@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 
 namespace ProjectEuler
 {
@@ -6,7 +7,7 @@ namespace ProjectEuler
     {
         static void Main()
         {
-            Console.WriteLine(CalculateProblemSix());
+            Console.WriteLine(GetPrimeNumberByIndex(10001));
         }
 
         #region 1
@@ -183,6 +184,51 @@ namespace ProjectEuler
                 return result * result;
             }
         }
+        #endregion
+
+        #region 7
+
+        /*
+            By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+            What is the 10 001st prime number?
+        */
+        
+        static int GetPrimeNumberByIndex(int number)
+        {
+            int currentNumber = 1;
+
+            int numberCounter = 0;
+
+            while (true)
+            {
+                if (isPrime(currentNumber))
+                {
+                    ++numberCounter;
+
+                    if (numberCounter == number)
+                        return currentNumber;
+                }
+
+                ++currentNumber;
+            }
+
+            bool isPrime(int number)
+            {
+                if (number == 1)
+                    return false;
+                else if (number == 2)
+                    return true;
+
+                for (int i = 2; i < number; ++i)
+                {
+                    if (number % i == 0)
+                        return false;
+                }
+
+                return true;
+            }
+        }
+
         #endregion
     }
 }
