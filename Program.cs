@@ -6,7 +6,7 @@ namespace ProjectEuler
     {
         static void Main()
         {
-            Console.WriteLine(GetAllPrimeFactors(13195));
+            Console.WriteLine(CalculateProblemSix());
         }
 
         #region 1
@@ -105,6 +105,83 @@ namespace ProjectEuler
             }
 
             return lastNumber;
+        }
+        #endregion
+
+        #region 4
+
+        /*
+            A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+            Find the largest palindrome made from the product of two 3-digit numbers. 
+        */
+
+        //static void FindLargestPalindromeNumber(int number)
+        //{
+        //    //GetAllNumbers(number);
+
+        //    int firstNumber = 999;
+        //    int secondNumber = 999;
+
+        //    int temp
+
+        //    while (firstNumber >= 100)
+        //    {
+        //        while(secondNumber >= 100)
+
+        //    }
+
+        //    void GetAllNumbers(int number)
+        //    {
+        //        int lastDigit;
+
+        //        while (number >= 1)
+        //        {
+        //            lastDigit = number % 10;
+        //            number = (number - lastDigit) / 10;
+        //        }
+        //    }
+        //}
+        #endregion
+
+        #region 5
+        /*
+            2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+            What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+        */
+        #endregion
+
+        #region 6
+
+        /*
+            The sum of the squares of the first ten natural numbers is,
+            The square of the sum of the first ten natural numbers is,
+            Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is .
+            Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+        */
+        
+        static int CalculateProblemSix()
+        {
+            return GetSquareOfSum() - GetSumOfSquares();
+
+            int GetSumOfSquares()
+            {
+                int result = 0;
+
+                for (int i = 1; i <= 100; ++i)
+                    result += i * i;
+
+                return result;
+            }
+
+            int GetSquareOfSum()
+            {
+                int result = 0;
+
+                for (int i = 1; i <= 100; ++i)
+                    result += i;
+
+                return result * result;
+            }
         }
         #endregion
     }
